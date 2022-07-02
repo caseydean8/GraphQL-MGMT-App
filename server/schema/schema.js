@@ -48,12 +48,14 @@ const RootQuery = new GraphQLObjectType({
   name: "RootQueryType",
   // below fields are going to be objects that pertain to queries
   fields: {
+    // Get all projects
     projects: {
       type: new GraphQLList(ProjectType),
       resolve(parent, args) {
         return Project.find();
       },
     },
+    // Get project by id
     project: {
       type: ProjectType,
       args: { id: { type: GraphQLID } },
@@ -61,12 +63,14 @@ const RootQuery = new GraphQLObjectType({
         return Project.findById(args.id);
       },
     },
+    // get all clients
     clients: {
       type: new GraphQLList(ClientType),
       resolve(parent, args) {
         return Client.find();
       },
     },
+    // get client by id
     client: {
       type: ClientType,
       args: { id: { type: GraphQLID } },
@@ -77,10 +81,11 @@ const RootQuery = new GraphQLObjectType({
   },
 });
 
-// Mutations
+// Mutations- CRUD functionality of GraphQl.
 const mutation = new GraphQLObjectType({
   name: "Mutation",
   fields: {
+    // Add a client
     addClient: {
       type: ClientType,
       args: {
@@ -108,6 +113,7 @@ const mutation = new GraphQLObjectType({
         return Client.findByIdAndRemove(args.id);
       },
     },
+    // Add a project
     addProject: {
       type: ProjectType,
       args: {
@@ -137,7 +143,7 @@ const mutation = new GraphQLObjectType({
         return project.save();
       },
     },
-    // Delete project
+    // Delete project by id
     deleteProject: {
       type: ProjectType,
       args: {
@@ -147,7 +153,7 @@ const mutation = new GraphQLObjectType({
         return Project.findByIdAndRemove(args.id);
       },
     },
-    // Update project
+    // Update project by id
     updateProject: {
       type: ProjectType,
       args: {
