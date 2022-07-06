@@ -28,7 +28,8 @@ const cache = new InMemoryCache({
 const client = new ApolloClient({
   // uri: "http://localhost:5000/graphql",
   // set uri for heroku deployment
-  uri: "https://graphql-mgmt.herokuapp.com/",
+  // uri: "https://graphql-mgmt.herokuapp.com/",
+  uri: "/graphql",
   // cache: new InMemoryCache(), replaced with cache variable
   cache,
 });
