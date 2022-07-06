@@ -27,7 +27,7 @@ code {
 }
 
 .navbar-brand {
-  color: #df3ca6;
+  color: #00b4e2;
 }
 
 .navbar-brand img {
@@ -51,11 +51,11 @@ code {
 }
 
 .btn-secondary {
-  background-color: #7430f9;
+  background-color: #00b4e2;
 }
 
 .btn-secondary:hover {
-  background-color: #7430f9;
+  background-color: #00b4e2;
   opacity: 0.9;
 }
 

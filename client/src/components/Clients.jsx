@@ -1,13 +1,11 @@
 import { useQuery } from "@apollo/client";
 import ClientRow from "./ClientRow"
 import { GET_CLIENTS } from "../queries/ClientQueries";
-import Spinner from "./Spinner";
 
 export default function Clients() {
   // ApolloProvider is essentially it's own state manager, loading state is true or false.
   const { loading, error, data } = useQuery(GET_CLIENTS);
 
-  if (loading) return <Spinner />;
   if (error) return <p>Something went wrong</p>;
 
   return (
